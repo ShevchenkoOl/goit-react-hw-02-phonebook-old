@@ -1,4 +1,4 @@
-import { Title } from "components/Phonebook/Phonebook.style";
+import { Title } from './Section.style';
 
 export const Section = ({ title, children}) => (
   <Title>

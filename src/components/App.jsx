@@ -1,46 +1,87 @@
-
-//import PropTypes from 'prop-types';
 //import { nanoid } from 'nanoid';
-import { Component } from "react";
-import { ContactsList } from "./Contacts/ContactsList";
-import { Phonebook } from "./Phonebook/Phonebook";
-import { Container } from "./Phonebook/Phonebook.style";
-import { Section } from "./Section/Section";
-// import {Contacts} from "./Contacts/Contacts"
+import { Component } from 'react';
+import { Section } from './Section/Section';
+import ContactList from '../components/ContactLIst/ContactList';
+import ContactForm from '../components/ContactForm/ContactForm';
 
-export class App extends Component () {
-  // static defaultProps = {
-  //   initialContact: [],
-  // }
-    
-    state = {
-      contacts: [],
-      name: ''
-    }
-  render (){
 
+export class App extends Component {
+  state = {
+    contacts: [
+      // { id: shortid.generate(), name: 'Rosie Simpson', number: '459-12-56' },
+      // { id: shortid.generate(), name: 'Hermione Kline', number: '443-89-12' },
+      // { id: shortid.generate(), name: 'Eden Clements', number: '645-17-79' },
+      // { id: shortid.generate(), name: 'Annie Copeland', number: '227-91-26' },
+    ],
+    name: '',
+  };
+
+  // addContact = ({ name }) => {
+  //   const contact = {
+  //     id: nanoid(),
+  //     name,
+  //   };
+
+    //const { contacts } = this.state;
   
-  return (
-      <Container>
-<Section title="Phonebook">
-          <Phonebook/>
-</Section>
-<Section title="Contacts">
-<ContactsList items={this.state.contacts}/>
-  
-</Section>
-    </Container>
-  );
-};
+  //   if (
+  //     contacts.find(
+  //       contact => contact.name.toLowerCase() === name.toLowerCase(),
+  //     )
+  //   ) {
+  //     alert(`${name} is already in contacts.`);
+  //   } else if (contacts.find(contact => contact.number === number)) {
+  //     alert(`${number} is already in contacts.`);
+  //   } else if (name.trim() === '' || number.trim() === '') {
+  //     alert("Enter the contact's name and number phone!");
+  //   } else if (!/\d{3}[-]\d{2}[-]\d{2}/g.test(number)) {
+  //     alert('Enter the correct number phone!');
+  //   } else {
+  //     this.setState(({ contacts }) => ({
+  //       contacts: [contact, ...contacts],
+  //     }));
+  //   }
+  // };
+
+  // deleteContact = contactId => {
+  //   this.setState(({ contacts }) => ({
+  //     contacts: contacts.filter(contact => contact.id !== contactId),
+  //   }));
+  // };
+
+  // changeFilter = e => {
+  //   this.setState({ filter: e.currentTarget.value });
+  // };
+
+  // getVisibleContacts = () => {
+  //   const { contacts, filter } = this.state;
+  //   const normalizedFilter = filter.toLowerCase();
+
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(normalizedFilter),
+  //   );
+  // };
+
+  render() {
+    const { contacts } = this.state;
+    //const visibleContacts = this.getVisibleContacts();
+    return (
+      <Section>
+        <h1>Phonebook</h1>
+        <ContactForm onSubmit={this.addContact} />
+        <h2>Contacts</h2>
+        {/* {contacts.length > 1 && (
+          <Filter value={filter} onChange={this.changeFilter} />
+        )} */}
+        {contacts.length > 0 ? (
+          <ContactList
+            // contacts={visibleContacts}
+            // onDeleteContact={this.deleteContact}
+          />
+        ) : (
+          <p>Your phonebook is empty. Please add contact.</p>
+        )}
+      </Section>
+    )
+  }
 }
-
-  // App.protoType = {
-  //   options: PropTypes.oneOf(['good', 'neutral', 'bad']),
-  
-  //   good: PropTypes.number.isRequired,
-  //   neutral: PropTypes.number.isRequired,
-  //   bad: PropTypes.number.isRequired,
-  //   positivePercentage: PropTypes.number.isRequired,
-  //   total: PropTypes.number.isRequired,
-  //   title: PropTypes.string.isRequired,
-  //    };
