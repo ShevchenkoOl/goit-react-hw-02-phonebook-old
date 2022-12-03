@@ -1,24 +1,38 @@
-// import { Component } from 'react';
-// import PropTypes from 'prop-types';
 
+//import PropTypes from 'prop-types';
+//import { nanoid } from 'nanoid';
+import { Component } from "react";
+import { ContactsList } from "./Contacts/ContactsList";
 import { Phonebook } from "./Phonebook/Phonebook";
 import { Container } from "./Phonebook/Phonebook.style";
 import { Section } from "./Section/Section";
 // import {Contacts} from "./Contacts/Contacts"
 
-export const App = () => {
+export class App extends Component () {
+  // static defaultProps = {
+  //   initialContact: [],
+  // }
+    
+    state = {
+      contacts: [],
+      name: ''
+    }
+  render (){
+
+  
   return (
       <Container>
 <Section title="Phonebook">
           <Phonebook/>
 </Section>
 <Section title="Contacts">
-  {/* <Contacts/> */}
+<ContactsList items={this.state.contacts}/>
+  
 </Section>
     </Container>
   );
 };
-
+}
 
   // App.protoType = {
   //   options: PropTypes.oneOf(['good', 'neutral', 'bad']),

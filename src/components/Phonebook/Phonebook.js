@@ -1,13 +1,17 @@
 
 // import PropTypes from 'prop-types'
 import {Button, 
-        SectionName
-        } from "./Phonebook.style";
+        Form,
+        Field,
+        Input
+            } from "./Phonebook.style";
 
 export const Phonebook = () => (
-    <SectionName>
+    <div>
+      <Form>
+        <Field>
    Name:
-   <input
+   <Input
   type="text"
   name="name"
   pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -15,7 +19,9 @@ export const Phonebook = () => (
   required
 />
 <Button type="button">Add contact</Button>
-    </SectionName>
+</Field>
+</Form>
+    </div>
   );
 
 
