@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import { Item, List} from './ContactList.style';
+import { Item, List, Button} from './ContactList.style';
 
-function ContactList({ contacts }) {
+function ContactList({ contacts, onDeleteContact }) {
   return (
     <List>
       {contacts.map(({ id, name }) => (
@@ -9,10 +9,10 @@ function ContactList({ contacts }) {
           <p>
             {name}
           </p>
-          {/* <Button
+          <Button
             type="button"
             onClick={() => onDeleteContact(id)}
-          /> */}
+          />
         </Item>
       ))}
     </List>

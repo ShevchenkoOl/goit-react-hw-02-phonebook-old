@@ -6,3 +6,5 @@ export const Section = ({ title, children}) => (
   {children}
 </Title>
   );
+
+  export default Section;
