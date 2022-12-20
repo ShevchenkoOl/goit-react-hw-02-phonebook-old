@@ -1,12 +1,11 @@
 import { Component } from 'react';
-import PropTypes, { number } from 'prop-types';
-import { Button, Form, Input, Label } from './ContactForm.stayl';
+import PropTypes from 'prop-types';
+import { Button, Form, Input, Label } from './ContactForm.style';
 
 class ContactForm extends Component {
   state = {
-    contacts: [],
     name: '',
-    number: ''
+    number: '',
   };
 
   handleChange = e => {
@@ -24,20 +23,17 @@ class ContactForm extends Component {
   };
 
   render() {
-    const { name } = this.state;
+    const { name, number } = this.state;
     return (
       <Form onSubmit={this.handleSubmit}>
         <Label>
-          Name:
+          Name
           <Input
             type="text"
             name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
             value={name}
-             onChange={this.handleChange}
-             placeholder="Ivan Ivanov"
+            onChange={this.handleChange}
+            placeholder="Ivan Ivanov"
           />
         </Label>
         <Label>

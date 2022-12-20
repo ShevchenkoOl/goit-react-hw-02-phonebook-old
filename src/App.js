@@ -1,32 +1,30 @@
 import { Component } from 'react';
 import shortid from 'shortid';
-import Section from './Section/Section';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactLIst/ContactList';
-import { number } from 'prop-types';
-import { nanoid } from 'nanoid';
+import Container from './components/Container/Container';
+import ContactForm from './components/ContactForm/ContactForm';
+import Filter from './components/Filter/Filter';
+import ContactList from './components/ContactList/ContactList';
 
-
-export class App extends Component {
+class App extends Component {
   state = {
     contacts: [
-      { id: shortid.generate(), name: 'Rosie Simpson', number: '459-12-56' },
-      { id: shortid.generate(), name: 'Hermione Kline', number: '443-89-12' },
-      { id: shortid.generate(), name: 'Eden Clements', number: '645-17-79' },
-      { id: shortid.generate(), name: 'Annie Copeland', number: '227-91-26' },
+      { id: shortid.generate(), name: 'Rosa Felice', number: '775-44-55' },
+      { id: shortid.generate(), name: 'Kevin Kleine', number: '885-14-14' },
+      { id: shortid.generate(), name: 'Giorgio Armani', number: '874-55-21' },
+      { id: shortid.generate(), name: 'Henri Ford', number: '785-15-63' },
     ],
-    name: '',
+    filter: '',
   };
 
-  addContact = ({ name }) => {
+  addContact = ({ name, number }) => {
     const contact = {
-      id: nanoid(),
+      id: shortid.generate(),
       name,
+      number,
     };
 
     const { contacts } = this.state;
-  
+
     if (
       contacts.find(
         contact => contact.name.toLowerCase() === name.toLowerCase(),
@@ -66,15 +64,15 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts } = this.state;
+    const { filter, contacts } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
-      <Section>
+      <Container>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         {contacts.length > 1 && (
-          <Filter value={this.state.filter} onChange={this.changeFilter} />
+          <Filter value={filter} onChange={this.changeFilter} />
         )}
         {contacts.length > 0 ? (
           <ContactList
@@ -84,7 +82,9 @@ export class App extends Component {
         ) : (
           <p>Your phonebook is empty. Please add contact.</p>
         )}
-      </Section>
-    )
+      </Container>
+    );
   }
 }
+
+export default App;

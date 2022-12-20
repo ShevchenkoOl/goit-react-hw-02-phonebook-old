@@ -1,16 +1,14 @@
 import styled from 'styled-components';
-
-export const Label = styled.ul`
-display: block;
+export const Label = styled.label `
+  display: block;
   margin-top: 10px;
-
+  color: var(--secondaryTextColor);
   font-weight: 500;
   font-size: 18px;
 `;
 
-
-export const Input = styled.ul`
-display: block;
+export const Input = styled.input `
+  display: block;
   margin-top: 10px;
   padding: 10px;
   width: 100%;
@@ -18,4 +16,4 @@ display: block;
   border-radius: 4px;
   cursor: pointer;
   font-size: 15px;
-`;
+ `;

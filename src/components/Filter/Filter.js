@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { Label, Input } from './Filter.style';
+import { Input, Label } from './Filter.style';
+
 
 function Filter({ value, onChange }) {
   return (
