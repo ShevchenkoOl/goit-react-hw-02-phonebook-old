@@ -3,7 +3,7 @@ import shortid from 'shortid';
 import Container from './components/Container/Container';
 import ContactForm from './components/ContactForm/ContactForm';
 import Filter from './components/Filter/Filter';
-import ContactList from './components/ContactList/ContactList';
+import ContactList from './components/ContactLis/ContactList';
 
 class App extends Component {
   state = {
