@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 export const Section = styled.div `
-  max-width: 500px;
+  max-width: 400px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
